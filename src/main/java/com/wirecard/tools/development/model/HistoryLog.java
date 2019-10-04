@@ -7,9 +7,9 @@ import java.util.Date;
 
 public class HistoryLog {
     @Id
-    public ObjectId _id;
+    public String _id;
 
-    public ActivityType activityType;
+    public String activityType;
     public String description;
     public String action;
     public String oldValue;
@@ -22,7 +22,7 @@ public class HistoryLog {
 
     public HistoryLog() {}
 
-    public HistoryLog(ObjectId _id, ActivityType activityType, String description, String action, String oldValue, String newValue, Date modifiedDate, String modifiedBy, String comment, String releaseId, String developmentId) {
+    public HistoryLog(String _id, String activityType, String description, String action, String oldValue, String newValue, Date modifiedDate, String modifiedBy, String comment, String releaseId, String developmentId) {
         this._id = _id;
         this.activityType = activityType;
         this.description = description;
@@ -36,19 +36,19 @@ public class HistoryLog {
         this.developmentId = developmentId;
     }
 
-    public ObjectId get_id() {
+    public String get_id() {
         return _id;
     }
 
-    public void set_id(ObjectId _id) {
+    public void set_id(String _id) {
         this._id = _id;
     }
 
-    public ActivityType getActivityType() {
+    public String getActivityType() {
         return activityType;
     }
 
-    public void setActivityType(ActivityType activityType) {
+    public void setActivityType(String activityType) {
         this.activityType = activityType;
     }
 

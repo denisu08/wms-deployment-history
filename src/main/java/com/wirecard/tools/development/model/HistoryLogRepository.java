@@ -4,5 +4,5 @@ import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface HistoryLogRepository extends MongoRepository<HistoryLog, String> {
-    HistoryLog findBy_id(ObjectId _id);
+    HistoryLog findBy_id(String _id);
 }
