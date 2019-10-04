@@ -1,0 +1,36 @@
+04-10-2019 21:10:22.781 [main] INFO  c.w.t.d.DevelopmentApplication.logStarting - Starting DevelopmentApplication on 5K1X8X2 with PID 14348 (C:\Wirecard\wms-deployment-history\target\classes started by denis.prasetio in C:\Wirecard\wms-deployment-history)
+04-10-2019 21:10:22.784 [main] INFO  c.w.t.d.DevelopmentApplication.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+04-10-2019 21:10:23.230 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data repositories in DEFAULT mode.
+04-10-2019 21:10:23.274 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 38ms. Found 1 repository interfaces.
+04-10-2019 21:10:23.484 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4daa17dc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+04-10-2019 21:10:23.654 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+04-10-2019 21:10:23.664 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8080"]
+04-10-2019 21:10:23.669 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+04-10-2019 21:10:23.669 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.26]
+04-10-2019 21:10:23.743 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+04-10-2019 21:10:23.744 [main] INFO  o.s.web.context.ContextLoader.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 928 ms
+04-10-2019 21:10:23.833 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+04-10-2019 21:10:23.901 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+04-10-2019 21:10:23.978 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+04-10-2019 21:10:24.021 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate Core {5.3.12.Final}
+04-10-2019 21:10:24.022 [main] INFO  org.hibernate.cfg.Environment.<clinit> - HHH000206: hibernate.properties not found
+04-10-2019 21:10:24.112 [main] INFO  o.h.annotations.common.Version.<clinit> - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+04-10-2019 21:10:24.205 [main] INFO  org.hibernate.dialect.Dialect.<init> - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+04-10-2019 21:10:24.707 [main] INFO  o.h.t.s.internal.SchemaCreatorImpl.applyImportSources - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@61eab26b'
+04-10-2019 21:10:24.710 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+04-10-2019 21:10:25.081 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor.initialize - Initializing ExecutorService 'applicationTaskExecutor'
+04-10-2019 21:10:25.107 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+04-10-2019 21:10:25.205 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8080"]
+04-10-2019 21:10:25.222 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+04-10-2019 21:10:25.223 [main] INFO  c.w.t.d.DevelopmentApplication.logStarted - Started DevelopmentApplication in 2.683 seconds (JVM running for 3.471)
+04-10-2019 21:10:25.278 [main] INFO  o.h.h.i.QueryTranslatorFactoryInitiator.initiateService - HHH000397: Using ASTQueryTranslatorFactory
+04-10-2019 21:10:33.791 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+04-10-2019 21:10:33.791 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+04-10-2019 21:10:33.796 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 5 ms
+04-10-2019 21:10:53.772 [Thread-8] INFO  o.s.s.c.ThreadPoolTaskExecutor.shutdown - Shutting down ExecutorService 'applicationTaskExecutor'
+04-10-2019 21:10:53.772 [Thread-8] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+04-10-2019 21:10:53.773 [Thread-8] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl.perform - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+04-10-2019 21:10:53.779 [Thread-8] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+04-10-2019 21:10:53.780 [Thread-8] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
