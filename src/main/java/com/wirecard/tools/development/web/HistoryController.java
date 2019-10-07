@@ -1,7 +1,10 @@
 package com.wirecard.tools.development.web;
 
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.model.Sorts;
 import com.wirecard.tools.development.model.HistoryLog;
 import com.wirecard.tools.development.model.HistoryLogRepository;
+import org.bson.conversions.Bson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +15,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Collection;
-import java.util.Optional;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api")
@@ -24,9 +28,35 @@ class HistoryController {
     @Autowired
     private HistoryLogRepository historyLogRepository;
 
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+    private SimpleDateFormat displayedFormat = new SimpleDateFormat("dd MMM yyyy HH:mm");
+
     @GetMapping("/histories")
-    Collection<HistoryLog> histories() {
-        return historyLogRepository.findAll();
+    Collection<HistoryLog> histories(@RequestParam String startTime, @RequestParam String endTime) throws ParseException {
+        Date startTimeParsed = sdf.parse(startTime);
+        Date endTimeParsed = sdf.parse(endTime);
+        List historyLogList = new ArrayList<>();
+        List<HistoryLog> res = (List<HistoryLog>) historyLogRepository.findAllByModifiedDateBetween(startTimeParsed, endTimeParsed);
+        res.sort(new Comparator<HistoryLog>() {
+            @Override
+            public int compare(HistoryLog o1, HistoryLog o2) {
+                return o1.getModifiedDate().compareTo(o2.getModifiedDate());
+            }
+        });
+
+        for (HistoryLog item : res) {
+            Map map = new HashMap();
+            map.put("id", item.get_id());
+            map.put("activityType", item.getActivityType());
+            map.put("comment", item.getComment());
+            map.put("description", item.getDescription());
+            map.put("action", item.getAction());
+            map.put("modifiedDate", displayedFormat.format(item.getModifiedDate()));
+            map.put("modifiedBy", item.getModifiedBy());
+            historyLogList.add(map);
+        }
+
+        return historyLogList;
     }
 
     @GetMapping("/history/{id}")
