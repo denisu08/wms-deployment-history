@@ -22,7 +22,11 @@ export default class AppNavbar extends Component {
             <Collapse isOpen={this.state.isOpen} navbar>
                 <Nav className="ml-auto" navbar>
                     <NavItem>
-                        <NavLink href="https://wirecard.com">@Wirecard</NavLink>
+                        <NavLink href="https://wirecard.com"><img
+                            src="/wirecard-logo.png"
+                            alt="Wirecard"
+                            width="100"
+                        /></NavLink>
                     </NavItem>
                 </Nav>
             </Collapse>

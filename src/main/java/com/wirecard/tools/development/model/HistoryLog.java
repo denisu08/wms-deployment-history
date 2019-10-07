@@ -7,18 +7,18 @@ import java.util.Date;
 
 public class HistoryLog {
     @Id
-    public String _id;
+    private String _id;
 
-    public String activityType;
-    public String description;
-    public String action;
-    public String oldValue;
-    public String newValue;
-    public Date modifiedDate;
-    public String modifiedBy;
-    public String comment;
-    public String releaseId;
-    public String developmentId;
+    private String activityType;
+    private String description;
+    private String action;
+    private String oldValue;
+    private String newValue;
+    private Date modifiedDate;
+    private String modifiedBy;
+    private String comment;
+    private String releaseId;
+    private String developmentId;
 
     public HistoryLog() {}
 

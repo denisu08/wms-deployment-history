@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface HistoryLogRepository extends MongoRepository<HistoryLog, String> {
     HistoryLog findBy_id(String _id);
-    List<HistoryLog> findAllByModifiedDateBetween(Date startTime, Date endTime);
+    List<HistoryLog> findAllByModifiedDateBetweenAndActionNotInAndActivityTypeNotIn(Date startTime, Date endTime, List<String> notInAction, List<String> notInActivityType);
 }
