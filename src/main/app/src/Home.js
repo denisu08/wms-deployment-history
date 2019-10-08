@@ -44,12 +44,12 @@ class Home extends Component {
     }
 
     onSearchClick(evt) {
-        this.setState({isLoading: true});
         const { startTime, endTime, uniqueFlag } = this.state;
         const startTimeMoment = moment(startTime, FORMAT_DATE);
         const endTimeMoment = moment(endTime, FORMAT_DATE);
 
         if(startTimeMoment.isBefore(endTimeMoment)) {
+            this.setState({isLoading: true});
             if(this.getDaysRange(startTime, endTime) < 3) {
                 fetch(`api/histories?startTime=${startTime}&endTime=${endTime}&uniqueFlag=${uniqueFlag}`)
                     .then(response => response.json())

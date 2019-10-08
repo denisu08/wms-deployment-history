@@ -49,7 +49,7 @@ class HistoryController {
         res.sort(new Comparator<HistoryLog>() {
             @Override
             public int compare(HistoryLog o1, HistoryLog o2) {
-                return o1.getModifiedDate().compareTo(o2.getModifiedDate());
+                return o2.getModifiedDate().compareTo(o1.getModifiedDate());
             }
         });
 
@@ -64,7 +64,7 @@ class HistoryController {
             // map.put("id", item.get_id());
             map.put("activityType", item.getActivityType() != null ? item.getActivityType() : "");
             // map.put("comment", item.getComment());
-            map.put("description", description);
+            map.put("description", description.toUpperCase());
             map.put("action", item.getAction());
             map.put("modifiedDate", displayedFormat.format(item.getModifiedDate()));
             map.put("modifiedBy", item.getModifiedBy());
@@ -85,13 +85,14 @@ class HistoryController {
     private String checkUniqueMap(Map<String, Set> uniqueActivityType, HistoryLog item) {
         Set uniqueList;
         Set currentList = new HashSet();
+        uniqueList = uniqueActivityType.get(item.getActivityType());
+        if(uniqueList == null) uniqueList = new HashSet();
+
         if(item != null && item.getDescription() != null && !"".equals(item.getDescription())) {
             String description = item.getDescription().toLowerCase().trim();
-            uniqueList = uniqueActivityType.get(item.getActivityType());
-            if(uniqueList == null) uniqueList = new HashSet();
             String[] splits = description.split(",");
             for(String split : splits) {
-                String data = split;
+                String data = split.toLowerCase().trim();
                 if("MODEL".equals(item.getActivityType()) && data.indexOf("_V_") == -1) {
                     ScriptHistory scriptHistory = scriptHistoryRepository.findBy_id(data);
                     if(scriptHistory != null) {
@@ -105,14 +106,12 @@ class HistoryController {
                 }
                 if(uniqueList.add(data)) currentList.add(data);
             }
-        } else {
-            uniqueList = new HashSet();
         }
         uniqueActivityType.put(item.getActivityType(), uniqueList);
         return Strings.join(currentList, ',');
     }
 
-    @GetMapping("/history/{id}")
+    /*@GetMapping("/history/{id}")
     ResponseEntity<?> getGroup(@PathVariable String id) {
         Optional<HistoryLog> group = historyLogRepository.findById(id);
         return group.map(response -> ResponseEntity.ok().body(response))
@@ -139,5 +138,5 @@ class HistoryController {
         log.info("Request to delete group: {}", id);
         historyLogRepository.deleteById(id);
         return ResponseEntity.ok().build();
-    }
+    }*/
 }
